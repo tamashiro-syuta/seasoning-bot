@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/sheet";
 import { Bars3Icon } from "@heroicons/react/16/solid";
 import NavigationCard, { NavigationCardProps } from "./navigation-card";
+import Link from "next/link";
 
 function AppBar() {
   const linkPages: NavigationCardProps[] = [
@@ -35,6 +36,11 @@ function AppBar() {
             </div>
           </SheetContent>
         </Sheet>
+      </MenubarMenu>
+      <MenubarMenu>
+        <Link href="/">
+          <h1 className="text-base font-bold">味付けbot</h1>
+        </Link>
       </MenubarMenu>
     </Menubar>
   );
