@@ -3,7 +3,7 @@ import "./globals.css";
 import { LiffProvider } from './components/LiffProvider';
 import { Inter as FontSans } from "next/font/google";
 import { cn } from '@/lib/utils';
-import AppBar from '@/components/custom/appbar';
+import AppBar from '@/components/custom/app-bar';
 
 export const metadata: Metadata = {
   title: 'LIFF App for App Router',
