@@ -8,7 +8,8 @@ type Size =
   | { en: "stick"; jp: "本" }
   | { en: "bunch"; jp: "束" }
   | { en: "slice"; jp: "切れ" }
-  | { en: "to taste"; jp: "適量" };
+  | { en: "bit"; jp: "かけ" }
+  | { en: "toTaste"; jp: "適量" };
 
 const sizes: Size[] = [
   { en: "tablespoon", jp: "大さじ" },
@@ -20,28 +21,57 @@ const sizes: Size[] = [
   { en: "stick", jp: "本" },
   { en: "bunch", jp: "束" },
   { en: "slice", jp: "切れ" },
-  { en: "to taste", jp: "適量" },
+  { en: "bit", jp: "かけ" },
+  { en: "toTaste", jp: "適量" },
 ];
 
 type Name =
   | { en: "soySauce"; jp: "醤油" }
   | { en: "mirin"; jp: "みりん" }
+  | { en: "miso"; jp: "味噌" }
+  | { en: "vinegar"; jp: "酢" }
   | { en: "sake"; jp: "酒" }
   | { en: "sugar"; jp: "砂糖" }
   | { en: "salt"; jp: "塩" }
   | { en: "pepper"; jp: "こしょう" }
   | { en: "garlic"; jp: "にんにく" }
-  | { en: "ginger"; jp: "しょうが" };
+  | { en: "ginger"; jp: "しょうが" }
+  | { en: "redChiliPepper"; jp: "赤唐辛子" }
+  | { en: "boiledEgg"; jp: "ゆで卵" }
+  | { en: "onion"; jp: "たまねぎ" }
+  | { en: "mayonnaise"; jp: "マヨネーズ" }
+  | { en: "lemonWater"; jp: "レモン汁" }
+  | { en: "dashi"; jp: "だし汁" }
+  | { en: "honey"; jp: "はちみつ" }
+  | { en: "ketchup"; jp: "ケチャップソース" }
+  | { en: "butter"; jp: "バター" }
+  | { en: "milk"; jp: "牛乳" }
+  | { en: "flour"; jp: "小麦粉" }
+  | { en: "water"; jp: "水" };
 
 export const ingredientNames: Name[] = [
   { en: "soySauce", jp: "醤油" },
   { en: "mirin", jp: "みりん" },
+  { en: "miso", jp: "味噌" },
+  { en: "vinegar", jp: "酢" },
   { en: "sake", jp: "酒" },
   { en: "sugar", jp: "砂糖" },
   { en: "salt", jp: "塩" },
   { en: "pepper", jp: "こしょう" },
   { en: "garlic", jp: "にんにく" },
   { en: "ginger", jp: "しょうが" },
+  { en: "redChiliPepper", jp: "赤唐辛子" },
+  { en: "boiledEgg", jp: "ゆで卵" },
+  { en: "onion", jp: "たまねぎ" },
+  { en: "mayonnaise", jp: "マヨネーズ" },
+  { en: "lemonWater", jp: "レモン汁" },
+  { en: "dashi", jp: "だし汁" },
+  { en: "honey", jp: "はちみつ" },
+  { en: "ketchup", jp: "ケチャップソース" },
+  { en: "butter", jp: "バター" },
+  { en: "milk", jp: "牛乳" },
+  { en: "flour", jp: "小麦粉" },
+  { en: "water", jp: "水" },
 ];
 
 // NOTE: 食材
