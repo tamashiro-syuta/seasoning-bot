@@ -33,7 +33,7 @@ type Name =
   | { en: "garlic"; jp: "にんにく" }
   | { en: "ginger"; jp: "しょうが" };
 
-const ingredientNames: Name[] = [
+export const ingredientNames: Name[] = [
   { en: "soySauce", jp: "醤油" },
   { en: "mirin", jp: "みりん" },
   { en: "sake", jp: "酒" },
@@ -55,6 +55,12 @@ export class Ingredient {
     this.size = this.translateToJapaneseSize(size);
     this.quantity = quantity;
   }
+
+  public static convertToSize = (size: string): Size | undefined => {
+    const foundByJp = sizes.find((s) => s.jp === size);
+    const foundByEn = sizes.find((s) => s.en === size);
+    return foundByJp || foundByEn;
+  };
 
   public field(): { name: string; size: string; quantity: number } {
     return {
