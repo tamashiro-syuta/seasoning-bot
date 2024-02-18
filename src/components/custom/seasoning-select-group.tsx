@@ -15,15 +15,16 @@ async function fetchData1(genre: string): Promise<Seasoning[]> {
 
 interface Props {
   genre: string;
+  withLabel?: boolean;
 }
 
-const SeasoningSelectGroup = async ({ genre }: Props) => {
+const SeasoningSelectGroup = async ({ genre, withLabel = false }: Props) => {
   const seasonings = await fetchData1(genre);
   if (seasonings.length === 0) return;
 
   return (
     <SelectGroup>
-      <SelectLabel>{genre}</SelectLabel>
+      {withLabel && <SelectLabel>{genre}</SelectLabel>}
       {seasonings.map((seasoning, index) => {
         return (
           <SelectItem key={index + seasoning.name} value={seasoning.name}>

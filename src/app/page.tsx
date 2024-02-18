@@ -21,7 +21,7 @@ export default async function Home() {
                   <Skeleton className="w-full h-[20px] px-2 my-2 bg-gray-200 rounded-full" />
                 }
               >
-                <SeasoningSelectGroup genre={genre} />
+                <SeasoningSelectGroup genre={genre} withLabel />
               </Suspense>
             );
           })}
