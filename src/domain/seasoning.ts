@@ -8,7 +8,7 @@ export type Genre =
   | "ドレッシング"
   | "その他";
 
-const genres: Genre[] = [
+export const genres: Genre[] = [
   "和風",
   "洋風",
   "中華",
