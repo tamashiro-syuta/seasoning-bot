@@ -26,11 +26,5 @@ export class AwsStack extends cdk.Stack {
         type: AttributeType.STRING,
       },
     });
-
-    // DBで必須なカラム
-    // - name: string (パーティションキー)
-    // - genre: string (ソートキー かつ GSI)
-    // 任意のカラム
-    // 各種調味料: string
   }
 }
