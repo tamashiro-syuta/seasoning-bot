@@ -38,7 +38,7 @@ const IngredientCard = ({ ingredient }: { ingredient: Ingredient }) => {
 const SeasoningCard = ({ seasoning, ...props }: SeasoningCardProps) => {
   const { name, genre, ingredients } = seasoning;
   return (
-    <Card className={cn("w-[380px]")} {...props}>
+    <Card id={name} className={cn("w-[380px]")} {...props}>
       <CardHeader>
         <CardTitle>{name}</CardTitle>
         <CardDescription>{genre}</CardDescription>

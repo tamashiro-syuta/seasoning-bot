@@ -1,34 +1,36 @@
+"use client";
+
 import {
   Select,
   SelectContent,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { Suspense } from "react";
-import SeasoningSelectGroup from "./seasoning-select-group";
-import { genres } from "@/domain/seasoning";
-import { Skeleton } from "../ui/skeleton";
+import { usePathname, useRouter } from "next/navigation";
 
-const SeasoningSelect = () => {
+interface Props {
+  inSelectContent: React.ReactNode;
+}
+
+const SeasoningSelect = ({ inSelectContent }: Props) => {
+  const pathname = usePathname();
+  const router = useRouter();
+  const scrollToSelectedValue = (to: string) => {
+    console.log("pathname", pathname);
+    router.push(`${pathname}#${to}`, { scroll: true });
+  };
   return (
-    <Select>
+    <Select
+      onValueChange={(e) => {
+        scrollToSelectedValue(e);
+      }}
+    >
       <SelectTrigger className="w-full">
         <SelectValue placeholder="味付けを選択" />
       </SelectTrigger>
-      <SelectContent>
-        {genres.map((genre, index) => {
-          return (
-            <Suspense
-              key={index}
-              fallback={
-                <Skeleton className="w-full h-[20px] px-2 my-2 bg-gray-200 rounded-full" />
-              }
-            >
-              <SeasoningSelectGroup genre={genre} />
-            </Suspense>
-          );
-        })}
-      </SelectContent>
+      {/* NOTE: サーバー上で取得した動的なデータをclient component上で使用したいため、propsからcompositionとして取得し、レンダリング */}
+      {/* NOTE: 詳しくは https://qiita.com/honey32/items/bc24d8c0ea3d096ff956 */}
+      <SelectContent>{inSelectContent}</SelectContent>
     </Select>
   );
 };

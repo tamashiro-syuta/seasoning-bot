@@ -8,7 +8,7 @@ const sleep = (ms: number) => {
 
 async function fetchData1(genre: string): Promise<Seasoning[]> {
   // ランダム秒数待機
-  await sleep(Math.floor(Math.random() * 5) * 1000);
+  await sleep(Math.floor(Math.random() * 3) * 1000);
   const seasonings = await getGenreSeasonings({ genre: genre });
   return seasonings;
 }
