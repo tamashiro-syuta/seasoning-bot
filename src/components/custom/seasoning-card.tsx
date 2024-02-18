@@ -36,14 +36,13 @@ const IngredientCard = ({ ingredient }: { ingredient: Ingredient }) => {
 };
 
 const SeasoningCard = ({ seasoning, ...props }: SeasoningCardProps) => {
-  const { name, genre, ingredients } = seasoning;
+  const { name, ingredients } = seasoning;
   return (
-    <Card id={name} className={cn("w-[380px]")} {...props}>
-      <CardHeader>
+    <Card id={name} className={cn("mx-2 drop-shadow")} {...props}>
+      <CardHeader className="pt-6 px-4 pb-1">
         <CardTitle>{name}</CardTitle>
-        <CardDescription>{genre}</CardDescription>
       </CardHeader>
-      <CardContent className="grid gap-4">
+      <CardContent className="grid gap-4 p-4">
         <div className="grid grid-cols-3 gap-4 py-1 min-h-120">
           {ingredients.map((ingredient, index) => (
             <IngredientCard

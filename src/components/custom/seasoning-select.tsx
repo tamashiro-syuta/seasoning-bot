@@ -25,7 +25,7 @@ const SeasoningSelect = ({ inSelectContent }: Props) => {
         scrollToSelectedValue(e);
       }}
     >
-      <SelectTrigger className="w-full">
+      <SelectTrigger className="drop-shadow w-full">
         <SelectValue placeholder="味付けを選択" />
       </SelectTrigger>
       {/* NOTE: サーバー上で取得した動的なデータをclient component上で使用したいため、propsからcompositionとして取得し、レンダリング */}

@@ -12,7 +12,7 @@ const Page = async () => {
 
   return (
     <main className="flex flex-col items-center justify-between">
-      <div className="sticky top-10 p-2 z-50 w-full bg-white">
+      <div id="test" className="sticky top-12 py-2 px-4 z-50 w-full bg-white">
         <SeasoningSelect
           inSelectContent={
             <Suspense

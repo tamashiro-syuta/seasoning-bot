@@ -20,7 +20,7 @@ function AppBar() {
   ];
 
   return (
-    <Menubar className="sticky top-0 z-50 rounded-none w-full">
+    <Menubar className="sticky top-0 z-50 rounded-none w-full h-12">
       <MenubarMenu>
         <Sheet>
           <SheetTrigger asChild>
