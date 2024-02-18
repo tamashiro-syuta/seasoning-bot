@@ -11,7 +11,10 @@ export default async function Home() {
 
   return (
     <main className="flex flex-col items-center justify-between scroll-smooth">
-      <div id="test" className="sticky top-12 py-2 px-4 z-50 w-full bg-white">
+      <div
+        id="test"
+        className="sticky top-12 py-2 px-4 z-50 w-full bg-primary-foreground"
+      >
         <SeasoningSelect
           inSelectContent={genres.map((genre, index) => {
             return (
@@ -27,9 +30,9 @@ export default async function Home() {
           })}
         />
       </div>
-      <div className="mt-2 mb-2">
+      <div className="grid lg:grid-cols-3 sm:grid-cols-2 grid-cols-1 gap-4 py-1 p-2 mb-12 min-h-120">
         {seasonings.map((seasoning, index) => (
-          <div key={index} className="mb-4">
+          <div key={index} className="mb-0">
             <SeasoningCard seasoning={seasoning} />
           </div>
         ))}

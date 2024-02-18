@@ -38,7 +38,11 @@ const IngredientCard = ({ ingredient }: { ingredient: Ingredient }) => {
 const SeasoningCard = ({ seasoning, ...props }: SeasoningCardProps) => {
   const { name, ingredients } = seasoning;
   return (
-    <Card id={name} className={cn("mx-2 drop-shadow")} {...props}>
+    <Card
+      id={name}
+      className={cn("mx-2 drop-shadow hover:border-primary")}
+      {...props}
+    >
       <CardHeader className="pt-6 px-4 pb-1">
         <CardTitle>{name}</CardTitle>
       </CardHeader>

@@ -24,7 +24,7 @@ export default function RootLayout({
     <html lang="ja" className="scroll-smooth scroll-pt-24">
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased",
+          "min-h-screen bg-background font-sans antialiased bg-primary-foreground",
           fontSans.variable
         )}
       >
