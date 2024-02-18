@@ -24,7 +24,13 @@ export const getGenreSeasonings = async ({
   };
 
   try {
-    const dynamoDBClient = new DynamoDBClient({});
+    const dynamoDBClient = new DynamoDBClient({
+      region: "ap-northeast1",
+      credentials: {
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID!,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY!,
+      },
+    });
     const result = await dynamoDBClient.send(new QueryCommand(params));
     if (!result.Items) throw new Error("No items");
 
