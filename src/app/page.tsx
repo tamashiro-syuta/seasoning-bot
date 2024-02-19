@@ -2,7 +2,7 @@ import SeasoningCard from "@/components/custom/seasoning-card";
 import SeasoningSelect from "@/components/custom/seasoning-select";
 import SeasoningSelectGroup from "@/components/custom/seasoning-select-group";
 import { Skeleton } from "@/components/ui/skeleton";
-import { genres } from "@/domain/seasoning";
+import { genres } from "@/domain/seasoning/constant";
 import { getGenreSeasonings } from "@/lib/dynamo/get-genre-seasonings";
 import { Suspense } from "react";
 

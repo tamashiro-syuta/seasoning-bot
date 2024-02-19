@@ -1,5 +1,6 @@
-import { Ingredient, ingredientNames } from "@/domain/ingredient";
-import { Seasoning } from "@/domain/seasoning";
+import { names as ingredientNames } from "@/domain/ingredient/constant";
+import Ingredient from "@/domain/ingredient";
+import Seasoning from "@/domain/seasoning";
 import {
   AttributeValue,
   DynamoDBClient,
