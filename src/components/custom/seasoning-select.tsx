@@ -16,7 +16,6 @@ const SeasoningSelect = ({ inSelectContent }: Props) => {
   const pathname = usePathname();
   const router = useRouter();
   const scrollToSelectedValue = (to: string) => {
-    console.log("pathname", pathname);
     router.push(`${pathname}#${to}`, { scroll: true });
   };
   return (
