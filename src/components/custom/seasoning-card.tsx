@@ -7,8 +7,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Image from "next/image";
-import { Ingredient } from "@/domain/ingredient";
-import { Seasoning } from "@/domain/seasoning";
+import Ingredient from "@/domain/ingredient";
+import Seasoning from "@/domain/seasoning";
 
 interface SeasoningCardProps extends React.ComponentProps<typeof Card> {
   seasoning: Seasoning;
