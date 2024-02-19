@@ -4,6 +4,7 @@ import { LiffProvider } from "./components/LiffProvider";
 import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import AppBar from "@/components/custom/app-bar";
+import Breadcrumb from "@/components/custom/breadcrumb";
 
 export const metadata: Metadata = {
   title: "LIFF App for App Router",
@@ -30,6 +31,10 @@ export default function RootLayout({
       >
         <LiffProvider liffId={process.env.NEXT_PUBLIC_LIFF_ID || ""}>
           <AppBar />
+          <div className="px-5 pt-2">
+            <Breadcrumb />
+          </div>
+
           {children}
         </LiffProvider>
       </body>
