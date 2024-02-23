@@ -29,14 +29,14 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <LiffProvider liffId={process.env.NEXT_PUBLIC_LIFF_ID || ""}>
-          <AppBar />
-          <div className="px-5 pt-2">
-            <Breadcrumb />
-          </div>
+        {/* <LiffProvider liffId={process.env.NEXT_PUBLIC_LIFF_ID || ""}> */}
+        <AppBar />
+        <div className="px-5 pt-2">
+          <Breadcrumb />
+        </div>
 
-          {children}
-        </LiffProvider>
+        {children}
+        {/* </LiffProvider> */}
       </body>
     </html>
   );
