@@ -1,8 +1,15 @@
 import { cn } from "@/lib/utils";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
 import Image from "next/image";
 import Ingredient from "@/domain/ingredient";
 import Seasoning from "@/domain/seasoning";
+import YummyButton from "./yummy-button";
 
 interface SeasoningCardProps extends React.ComponentProps<typeof Card> {
   seasoning: Seasoning;
@@ -40,7 +47,7 @@ const SeasoningCard = ({ seasoning, ...props }: SeasoningCardProps) => {
       <CardHeader className="pt-6 px-4 pb-1">
         <CardTitle>{name}</CardTitle>
       </CardHeader>
-      <CardContent className="grid gap-4 p-4">
+      <CardContent className="grid gap-4 px-4 pt-4 pb-2">
         <div className="grid grid-cols-3 gap-4 py-1 min-h-120">
           {ingredients.map((ingredient, index) => (
             <IngredientCard
@@ -50,6 +57,9 @@ const SeasoningCard = ({ seasoning, ...props }: SeasoningCardProps) => {
           ))}
         </div>
       </CardContent>
+      <CardFooter className="flex flex-row-reverse px-4 pb-3">
+        <YummyButton filled={false} />
+      </CardFooter>
     </Card>
   );
 };
