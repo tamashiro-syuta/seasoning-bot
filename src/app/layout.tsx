@@ -7,6 +7,7 @@ import Breadcrumb from "@/components/custom/breadcrumb";
 import type { Session } from "next-auth";
 import { LiffProvider } from "./components/LiffProvider";
 import { Profile } from "./components/Profile";
+import RecoilProvider from "./components/RecoilProvider";
 
 export const metadata: Metadata = {
   title: "LIFF App for App Router",
@@ -40,15 +41,17 @@ export default async function RootLayout({
           fontSans.variable
         )}
       >
-        <LiffProvider liffId={process.env.NEXT_PUBLIC_LIFF_ID!}>
-          <AppBar />
-          <Profile />
-          <div className="px-5 pt-2">
-            <Breadcrumb />
-          </div>
+        <RecoilProvider>
+          <LiffProvider liffId={process.env.NEXT_PUBLIC_LIFF_ID!}>
+            <AppBar />
+            <Profile />
+            <div className="px-5 pt-2">
+              <Breadcrumb />
+            </div>
 
-          {children}
-        </LiffProvider>
+            {children}
+          </LiffProvider>
+        </RecoilProvider>
       </body>
     </html>
   );

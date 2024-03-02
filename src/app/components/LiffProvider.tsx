@@ -11,6 +11,8 @@ import React, {
 } from "react";
 import { Liff } from "@line/liff";
 import VConsole from "vconsole";
+import { useRecoilState, useSetRecoilState } from "recoil";
+import { state as liffProfileState } from "./store/liffProvider";
 
 const LiffContext = createContext<{
   liff: Liff | null;
@@ -25,6 +27,7 @@ export const LiffProvider: FC<PropsWithChildren<{ liffId: string }>> = ({
 }) => {
   const [liff, setLiff] = useState<Liff | null>(null);
   const [liffError, setLiffError] = useState<string | null>(null);
+  const setProfile = useSetRecoilState(liffProfileState);
 
   const initLiff = useCallback(async () => {
     try {
@@ -36,11 +39,14 @@ export const LiffProvider: FC<PropsWithChildren<{ liffId: string }>> = ({
 
       console.log("LIFF init succeeded.");
       setLiff(liff);
+
+      const profile = await liff.getProfile();
+      setProfile(profile);
     } catch (error) {
       console.log("LIFF init failed.");
       setLiffError((error as Error).toString());
     }
-  }, [liffId]);
+  }, [liffId, setProfile]);
 
   // init Liff
   useEffect(() => {
