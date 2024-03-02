@@ -4,9 +4,9 @@ import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import AppBar from "@/components/custom/app-bar";
 import Breadcrumb from "@/components/custom/breadcrumb";
-import LineProvider from "./components/LineProvider";
-import { headers } from "next/headers";
 import type { Session } from "next-auth";
+import { LiffProvider } from "./components/LiffProvider";
+import { Profile } from "./components/Profile";
 
 export const metadata: Metadata = {
   title: "LIFF App for App Router",
@@ -32,8 +32,6 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await fetchSession(headers().get("cookie") ?? "");
-
   return (
     <html lang="ja" className="scroll-smooth scroll-pt-24">
       <body
@@ -42,14 +40,15 @@ export default async function RootLayout({
           fontSans.variable
         )}
       >
-        <LineProvider session={session}>
+        <LiffProvider liffId={process.env.NEXT_PUBLIC_LIFF_ID!}>
           <AppBar />
+          <Profile />
           <div className="px-5 pt-2">
             <Breadcrumb />
           </div>
 
           {children}
-        </LineProvider>
+        </LiffProvider>
       </body>
     </html>
   );
