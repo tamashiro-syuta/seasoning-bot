@@ -8,6 +8,7 @@ import type { Session } from "next-auth";
 import { LiffProvider } from "./components/LiffProvider";
 import { Profile } from "./components/Profile";
 import RecoilProvider from "./components/RecoilProvider";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "LIFF App for App Router",
@@ -50,6 +51,7 @@ export default async function RootLayout({
             </div>
 
             {children}
+            <Toaster />
           </LiffProvider>
         </RecoilProvider>
       </body>
