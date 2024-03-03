@@ -1,34 +1,32 @@
 "use client";
 
-import { atom, selector, useRecoilValue, useSetRecoilState } from "recoil";
-import { Profile } from "@liff/get-profile";
+import { atom, selector, useRecoilValue } from "recoil";
+import { Liff } from "@line/liff";
 
 const key = "liffProvider";
 
-export const state = atom<Profile | null>({
+interface LiffProvider {
+  liff: Liff | null;
+  liffError: string | null;
+}
+
+export const state = atom<LiffProvider>({
   key: `${key}/atom`,
-  default: null,
-});
-
-const profile = selector({
-  key: `${key}/selector`,
-  get: ({ get }) => {
-    const profile = get(state);
-
-    return profile;
+  default: {
+    liff: null,
+    liffError: null,
   },
 });
 
-const userId = selector({
-  key: `${key}/selector/userId`,
+const liff = selector({
+  key: `${key}/selector/liff`,
   get: ({ get }) => {
-    const profile = get(state);
+    const { liff } = get(state);
 
-    return profile?.userId;
+    return liff;
   },
 });
 
 export const selectors = {
-  useProfile: () => useRecoilValue(profile),
-  useUserId: () => useRecoilValue(userId),
+  useLiff: () => useRecoilValue(liff),
 };

@@ -1,13 +1,12 @@
 "use client";
 
-import { useLiff } from "@/app/components/LiffProvider";
-import { Profile } from "@liff/get-profile";
-
 import { useState } from "react";
+import { Profile } from "@liff/get-profile";
+import { selectors } from "./store/liffProvider";
 
 export function Profile() {
   const [profile, setProfile] = useState<Profile | null>(null);
-  const { liff } = useLiff();
+  const liff = selectors.useLiff();
 
   if (liff?.isLoggedIn()) {
     (async () => {
